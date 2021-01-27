@@ -10,23 +10,29 @@ class UserController extends Controller {
       password: { type: 'string' }
     })
 
-    if (await this.service.user.findByUsername(body.username)) {
+    const userService = this.service.user
+
+    if (await userService.findByUsername(body.username)) {
       this.ctx.throw(422, '用户已存在')
     }
 
-    if (await this.service.user.findByEmail(body.email)) {
+    if (await userService.findByEmail(body.email)) {
       this.ctx.throw(422, '邮箱已存在')
     }
 
     // 2. 保存用户
-    const user = await this.service.user.createUser(body)
+    const user = await userService.createUser(body)
 
     // 3. 生成 token
+    const token = userService.createToken({
+      userId: user._id
+    })
+
     // 4. 发送响应
     this.ctx.body = {
       user: {
         email: user.email,
-        // token:
+        token,
         username: user.username,
         channelDescription: user.channelDescription,
         avatar: user.avatar
