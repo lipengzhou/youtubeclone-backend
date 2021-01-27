@@ -15,7 +15,7 @@ class UserService extends Serive {
   findByEmail (email) {
     return this.User.findOne({
       email
-    })
+    }).select('+password')
   }
 
   async createUser (data) {

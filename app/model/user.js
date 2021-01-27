@@ -13,7 +13,7 @@ module.exports = app => {
     },
     password: { // 密码
       type: String,
-      select: false,
+      select: false, // 查询中不包含该字段
       required: true
     },
     avatar: { // 头像
