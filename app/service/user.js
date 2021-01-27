@@ -26,9 +26,14 @@ class UserService extends Serive {
   }
 
   createToken (data) {
-    return jwt.sign(data, this.app.config.jwt.secret, {
+    const token = jwt.sign(data, this.app.config.jwt.secret, {
       expiresIn: this.app.config.jwt.expiresIn
     })
+    return `Bearer ${token}`
+  }
+
+  verifyToken (token) {
+    return jwt.verify(token, this.app.config.jwt.secret)
   }
 }
 
