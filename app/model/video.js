@@ -2,31 +2,27 @@ module.exports = app => {
   const mongoose = app.mongoose
   const Schema = mongoose.Schema
 
-  const userSchema = new Schema({
-    username: { // 用户名
+  const videoSchema = new Schema({
+    title: { // 视频标题
       type: String,
       required: true
     },
-    email: { // 邮箱
+    description: { // 视频介绍
       type: String,
       required: true
     },
-    password: { // 密码
+    playUrl: { // 视频播放地址
       type: String,
-      select: false,
       required: true
     },
-    avatar: { // 头像
+    cover: { // 视频封面
       type: String,
-      default: null
+      required: true
     },
-    cover: {
-      type: String, // 封面
-      default: null
-    },
-    channelDescription: { // 频道介绍
-      type: String,
-      default: null
+    user: {
+      type: mongoose.ObjectId, // 视频作者
+      required: true,
+      ref: 'User'
     },
     createdAt: { // 创建时间
       type: Date,
@@ -38,5 +34,5 @@ module.exports = app => {
     }
   })
 
-  return mongoose.model('User', userSchema)
+  return mongoose.model('Video', videoSchema)
 }
