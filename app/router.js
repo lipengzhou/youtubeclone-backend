@@ -14,4 +14,7 @@ module.exports = app => {
   router.post('/users/:userId/subscribe', auth, controller.user.subscribe)
   router.delete('/users/:userId/subscribe', auth, controller.user.unsubscribe)
   router.get('/users/:userId/subscriptions', controller.user.getSubscriptions)
+
+  // 阿里云VOD
+  router.post('/vod/CreateUploadVideo', auth, controller.vod.createUploadVideo)
 }
