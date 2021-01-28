@@ -41,6 +41,28 @@ class UserService extends Serive {
       new: true // 返回更新之后的数据
     })
   }
+
+  async subscribe (userId, channelId) {
+    const { Subscription, User } = this.app.model
+    // 1. 检查是否已经订阅
+    const record = await Subscription.findOne({
+      user: userId,
+      channel: channelId
+    })
+    const user = await User.findById(channelId)
+    // 2. 没有订阅，添加订阅
+    if (!record) {
+      await new Subscription({
+        user: userId,
+        channel: channelId
+      }).save()
+      // 更新用户的订阅数量
+      user.subscribersCount++
+      await user.save() // 更新到数据库中
+    }
+    // 3. 返回用户信息
+    return user
+  }
 }
 
 module.exports = UserService
