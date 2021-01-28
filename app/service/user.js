@@ -63,6 +63,23 @@ class UserService extends Serive {
     // 3. 返回用户信息
     return user
   }
+
+  async unsubscribe (userId, channelId) {
+    const { Subscription, User } = this.app.model
+    const record = await Subscription.findOne({
+      user: userId,
+      channel: channelId
+    })
+    const user = await User.findById(channelId)
+    if (record) {
+      await record.remove() // 删除订阅记录
+      // 更新用户的订阅数量
+      user.subscribersCount--
+      await user.save() // 更新到数据库中
+    }
+    // 3. 返回用户信息
+    return user
+  }
 }
 
 module.exports = UserService
