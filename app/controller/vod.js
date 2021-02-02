@@ -1,5 +1,6 @@
-var RPCClient = require('@alicloud/pop-core').RPCClient
 const Controller = require('egg').Controller
+
+var RPCClient = require('@alicloud/pop-core').RPCClient
 
 function initVodClient(accessKeyId, accessKeySecret) {
   var regionId = 'cn-shanghai' // 点播服务接入区域
@@ -15,17 +16,21 @@ function initVodClient(accessKeyId, accessKeySecret) {
 
 class VodController extends Controller {
   async createUploadVideo() {
-    const body = this.ctx.request.body
-    this.ctx.validate({
-      Title: { type: 'string' },
-      FileName: { type: 'string' }
-    })
-    const vodClient = initVodClient('LTAI4FzgRRRN2MjwBzc3xQtp', 'xAllGuORtBDVcrTQpTOWu4HfjYgN1p')
-    this.ctx.body = await vodClient.request(
-      'CreateUploadVideo',
-      body,
-      {}
+    const query = this.ctx.query
+    this.ctx.validate(
+      {
+        Title: { type: 'string' },
+        FileName: { type: 'string' }
+      },
+      query
     )
+
+    const vodClient = initVodClient(
+      'LTAI4GBDnU3uNnaPhArWbAXa',
+      'hup32yUztg6NxtzHkhXpw12OlyX4TP'
+    )
+
+    this.ctx.body = await vodClient.request('CreateUploadVideo', query, {})
   }
 }
 
