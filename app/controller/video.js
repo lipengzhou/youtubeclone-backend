@@ -103,6 +103,41 @@ class VideoController extends Controller {
       videosCount
     }
   }
+
+  async getUserFeedVideos () {
+    const { Video, Subscription } = this.app.model
+    let { pageNum = 1, pageSize = 10 } = this.ctx.query
+    const userId = this.ctx.user._id
+    pageNum = Number.parseInt(pageNum)
+    pageSize = Number.parseInt(pageSize)
+
+    const channels = await Subscription.find({ user: userId }).populate('channel')
+    const getVideos = Video
+      .find({
+        user: {
+          $in: channels.map(item => item.channel._id)
+        }
+      })
+      .populate('user')
+      .sort({
+        createdAt: -1
+      })
+      .skip((pageNum - 1) * pageSize)
+      .limit(pageSize)
+    const getVideosCount = Video.countDocuments({
+      user: {
+        $in: channels.map(item => item.channel._id)
+      }
+    })
+    const [ videos, videosCount ] = await Promise.all([
+      getVideos,
+      getVideosCount
+    ])
+    this.ctx.body = {
+      videos,
+      videosCount
+    }
+  }
 }
 
 module.exports = VideoController
