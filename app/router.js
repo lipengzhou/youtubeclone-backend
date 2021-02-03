@@ -25,4 +25,5 @@ module.exports = app => {
     .delete('/videos/:videoId', auth, controller.video.deleteVideo) // 删除视频
     .post('/videos/:videoId/comments', auth, controller.video.createComment) // 添加视频评论
     .get('/videos/:videoId/comments', controller.video.getVideoComments) // 获取视频评论列表
+    .delete('/videos/:videoId/comments/:commentId', auth, controller.video.deleteVideoComment) // 删除视频评论
 }

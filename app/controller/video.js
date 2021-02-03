@@ -263,6 +263,40 @@ class VideoController extends Controller {
       commentsCount
     }
   }
+
+  async deleteVideoComment () {
+    const { Video, VideoComment } = this.app.model
+    const { videoId, commentId } = this.ctx.params
+
+    // 校验视频是否存在
+    const video = await Video.findById(videoId)
+    if (!video) {
+      this.ctx.throw(404, 'Video Not Found')
+    }
+
+    const comment = await VideoComment.findById(commentId)
+
+    // 校验评论是否存在
+    if (!comment) {
+      this.ctx.throw(404, 'Comment Not Found')
+    }
+
+    // 校验评论作者是否是当前登录用户
+    if (!comment.user.equals(this.ctx.user._id)) {
+      this.ctx.throw(403)
+    }
+
+    // 删除视频评论
+    await comment.remove()
+
+    // 更新视频评论数量
+    video.commentsCount = await VideoComment.countDocuments({
+      video: videoId
+    })
+    await video.save()
+
+    this.ctx.status = 204
+  }
 }
 
 module.exports = VideoController
