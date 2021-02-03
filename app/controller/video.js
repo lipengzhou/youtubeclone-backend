@@ -297,6 +297,109 @@ class VideoController extends Controller {
 
     this.ctx.status = 204
   }
+
+  async likeVideo() {
+    const { Video, VideoLike } = this.app.model
+    const { videoId } = this.ctx.params
+    const userId = this.ctx.user._id
+    const video = await Video.findById(videoId)
+
+    if (!video) {
+      this.ctx.throw(404, 'Video Not Found')
+    }
+
+    const doc = await VideoLike.findOne({
+      user: userId,
+      video: videoId
+    })
+
+    let isLiked = true
+
+    if (doc && doc.like === 1) {
+      await doc.remove() // 取消点赞
+      isLiked = false
+    } else if (doc && doc.like === -1) {
+      doc.like = 1
+      await doc.save()
+    } else {
+      await new VideoLike({
+        user: userId,
+        video: videoId,
+        like: 1
+      }).save()
+    }
+
+    // 更新喜欢视频的数量
+    video.likesCount = await VideoLike.countDocuments({
+      video: videoId,
+      like: 1
+    })
+
+    // 更新不喜欢视频的数量
+    video.dislikesCount = await VideoLike.countDocuments({
+      video: videoId,
+      like: -1
+    })
+
+    // 将修改保存到数据库中
+    await video.save()
+
+    this.ctx.body = {
+      video: {
+        ...video.toJSON(),
+        isLiked
+      }
+    }
+  }
+
+  async dislikeVideo() {
+    const { Video, VideoLike } = this.app.model
+    const { videoId } = this.ctx.params
+    const userId = this.ctx.user._id
+    const video = await Video.findById(videoId)
+
+    if (!video) {
+      this.ctx.throw(404, `No video found for ID - ${videoId}`)
+    }
+
+    const doc = await VideoLike.findOne({
+      user: userId,
+      video: videoId
+    })
+
+    let isDisliked = true
+
+    if (doc && doc.like === -1) {
+      await doc.remove()
+      isDisliked = false
+    } else if (doc && doc.like === 1) {
+      doc.like = -1
+      await doc.save()
+    } else {
+      await new VideoLike({
+        user: userId,
+        video: videoId,
+        like: -1
+      }).save()
+    }
+
+    // 更新视频喜欢和不喜欢的数量
+    video.likesCount = await VideoLike.countDocuments({
+      video: videoId,
+      like: 1
+    })
+    video.dislikesCount = await VideoLike.countDocuments({
+      video: videoId,
+      like: -1
+    })
+
+    this.ctx.body = {
+      video: {
+        ...video.toJSON(),
+        isDisliked
+      }
+    }
+  }
 }
 
 module.exports = VideoController

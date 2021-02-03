@@ -26,4 +26,6 @@ module.exports = app => {
     .post('/videos/:videoId/comments', auth, controller.video.createComment) // 添加视频评论
     .get('/videos/:videoId/comments', controller.video.getVideoComments) // 获取视频评论列表
     .delete('/videos/:videoId/comments/:commentId', auth, controller.video.deleteVideoComment) // 删除视频评论
+    .post('/videos/:videoId/like', auth, controller.video.likeVideo) // 喜欢视频
+    .post('/videos/:videoId/dislike', auth, controller.video.dislikeVideo) // 不喜欢视频
 }
