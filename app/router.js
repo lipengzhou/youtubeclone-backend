@@ -19,4 +19,7 @@ module.exports = app => {
   router.get('/vod/CreateUploadVideo', auth, controller.vod.createUploadVideo)
   router.get('/vod/RefreshUploadVideo', auth, controller.vod.refreshUploadVideo)
   router.get('/vod/GetVideoPlayAuth', controller.vod.getVideoPlayAuth)
+
+  // 视频
+  router.post('/videos', auth, controller.video.createVideo)
 }

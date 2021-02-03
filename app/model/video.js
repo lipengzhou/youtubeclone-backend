@@ -11,7 +11,7 @@ module.exports = app => {
       type: String,
       required: true
     },
-    playUrl: { // 视频播放地址
+    vodVideoId: { // VOD 视频 ID
       type: String,
       required: true
     },
@@ -23,6 +23,22 @@ module.exports = app => {
       type: mongoose.ObjectId, // 视频作者
       required: true,
       ref: 'User'
+    },
+    commentsCount: { // 评论数量
+      type: Number,
+      default: 0
+    },
+    dislikesCount: { // 不喜欢数量
+      type: Number,
+      default: 0
+    },
+    likesCount: { // 喜欢数量
+      type: Number,
+      default: 0
+    },
+    viewsCount: { // 观看次数
+      type: Number,
+      default: 0
     },
     createdAt: { // 创建时间
       type: Date,
