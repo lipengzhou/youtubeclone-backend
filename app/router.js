@@ -4,22 +4,19 @@ module.exports = app => {
 
   router.prefix('/api/v1') // 设置基础路径
 
-  router.post('/users', controller.user.create)
-  router.post('/users/login', controller.user.login)
-  router.get('/user', auth, controller.user.getCurrentUser)
-  router.patch('/user', auth, controller.user.update)
-  router.get('/users/:userId', app.middleware.auth({ required: false }), controller.user.getUser)
-
-  // 用户订阅
-  router.post('/users/:userId/subscribe', auth, controller.user.subscribe)
-  router.delete('/users/:userId/subscribe', auth, controller.user.unsubscribe)
-  router.get('/users/:userId/subscriptions', controller.user.getSubscriptions)
-
-  // 阿里云 VOD
-  router.get('/vod/CreateUploadVideo', auth, controller.vod.createUploadVideo)
-  router.get('/vod/RefreshUploadVideo', auth, controller.vod.refreshUploadVideo)
-  router.get('/vod/GetVideoPlayAuth', controller.vod.getVideoPlayAuth)
-
-  // 视频
-  router.post('/videos', auth, controller.video.createVideo)
+  router
+    .post('/users', controller.user.create) // 用户注册
+    .post('/users/login', controller.user.login) // 用户登录
+    .get('/user', auth, controller.user.getCurrentUser) // 获取当前登录用户
+    .patch('/user', auth, controller.user.update) // 更新当前登录用户
+    .get('/users/:userId', app.middleware.auth({ required: false }), controller.user.getUser) // 获取用户资料
+    .post('/users/:userId/subscribe', auth, controller.user.subscribe) // 添加用户订阅
+    .delete('/users/:userId/subscribe', auth, controller.user.unsubscribe) // 取消用户订阅
+    .get('/users/:userId/subscriptions', controller.user.getSubscriptions) // 获取用户订阅列表
+    .get('/vod/CreateUploadVideo', auth, controller.vod.createUploadVideo) // 获取视频上传地址和凭证
+    .get('/vod/RefreshUploadVideo', auth, controller.vod.refreshUploadVideo) // 刷新视频上传凭证
+    .get('/vod/GetVideoPlayAuth', controller.vod.getVideoPlayAuth) // 获取视频播放凭证
+    .post('/videos', auth, controller.video.createVideo) // 创建视频
+    .get('/videos/:videoId', app.middleware.auth({ required: false }), controller.video.getVideo) // 获取视频详情
+    .get('/videos', controller.video.getVideos)
 }
