@@ -24,4 +24,5 @@ module.exports = app => {
     .patch('/videos/:videoId', auth, controller.video.updateVideo) // 更新视频
     .delete('/videos/:videoId', auth, controller.video.deleteVideo) // 删除视频
     .post('/videos/:videoId/comments', auth, controller.video.createComment) // 添加视频评论
+    .get('/videos/:videoId/comments', controller.video.getVideoComments) // 获取视频评论列表
 }

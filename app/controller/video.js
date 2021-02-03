@@ -232,6 +232,37 @@ class VideoController extends Controller {
       comment
     }
   }
+
+  async getVideoComments () {
+    const { videoId } = this.ctx.params
+    const { VideoComment } = this.app.model
+    let { pageNum = 1, pageSize = 10 } = this.ctx.query
+    pageNum = Number.parseInt(pageNum)
+    pageSize = Number.parseInt(pageSize)
+
+    const getComments = VideoComment
+      .find({
+        video: videoId
+      })
+      .skip((pageNum - 1) * pageSize)
+      .limit(pageSize)
+      .populate('user')
+      .populate('video')
+
+    const getCommentsCount = VideoComment.countDocuments({
+      video: videoId
+    })
+
+    const [ comments, commentsCount ] = await Promise.all([
+      getComments,
+      getCommentsCount
+    ])
+
+    this.ctx.body = {
+      comments,
+      commentsCount
+    }
+  }
 }
 
 module.exports = VideoController
