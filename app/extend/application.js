@@ -20,7 +20,8 @@ let vodClient = null
 module.exports = {
   get vodClient () {
     if (!vodClient) {
-      vodClient = initVodClient('LTAI4GBDnU3uNnaPhArWbAXa','hup32yUztg6NxtzHkhXpw12OlyX4TP')
+      const { accessKeyId, accessKeySecret } = this.config.vod
+      vodClient = initVodClient(accessKeyId, accessKeySecret)
     }
     return vodClient
   }
