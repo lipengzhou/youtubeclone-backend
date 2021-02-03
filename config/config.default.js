@@ -16,9 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1611716016238_6422'
 
   // add your middleware config here
-  config.middleware = [
-    'errorHandler'
-  ]
+  config.middleware = ['errorHandler']
 
   // add your user config here
   const userConfig = {
@@ -45,6 +43,12 @@ module.exports = appInfo => {
   config.jwt = {
     secret: 'a6e8561e-58df-4715-aa21-b5d1a091e71a',
     expiresIn: '1d'
+  }
+
+  config.cors = {
+    origin: '*'
+    // {string|Function} origin: '*',
+    // {string|Array} allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   }
 
   return {
