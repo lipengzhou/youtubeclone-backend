@@ -175,6 +175,26 @@ class VideoController extends Controller {
       video
     }
   }
+
+  async deleteVideo () {
+    const { Video } = this.app.model
+    const { videoId } = this.ctx.params
+    const video = await Video.findById(videoId)
+
+    // 视频不存在
+    if (!video) {
+      this.ctx.throw(404)
+    }
+
+    // 视频作者不是当前登录用户
+    if (!video.user.equals(this.ctx.user._id)) {
+      this.ctx.throw(403)
+    }
+
+    await video.remove()
+
+    this.ctx.status = 204
+  }
 }
 
 module.exports = VideoController
