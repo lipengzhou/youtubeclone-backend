@@ -18,5 +18,6 @@ module.exports = app => {
     .get('/vod/GetVideoPlayAuth', controller.vod.getVideoPlayAuth) // 获取视频播放凭证
     .post('/videos', auth, controller.video.createVideo) // 创建视频
     .get('/videos/:videoId', app.middleware.auth({ required: false }), controller.video.getVideo) // 获取视频详情
-    .get('/videos', controller.video.getVideos)
+    .get('/videos', controller.video.getVideos) // 获取视频列表
+    .get('/users/:userId/videos', controller.video.getUserVideos) // 获取用户发布的视频列表
 }
