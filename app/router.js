@@ -23,4 +23,5 @@ module.exports = app => {
     .get('/user/videos/feed', auth, controller.video.getUserFeedVideos) // 获取用户关注的频道视频列表
     .patch('/videos/:videoId', auth, controller.video.updateVideo) // 更新视频
     .delete('/videos/:videoId', auth, controller.video.deleteVideo) // 删除视频
+    .post('/videos/:videoId/comments', auth, controller.video.createComment) // 添加视频评论
 }

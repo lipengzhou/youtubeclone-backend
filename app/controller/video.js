@@ -195,6 +195,43 @@ class VideoController extends Controller {
 
     this.ctx.status = 204
   }
+
+  async createComment () {
+    const body = this.ctx.request.body
+    const { Video, VideoComment } = this.app.model
+    const { videoId } = this.ctx.params
+    // 数据验证
+    this.ctx.validate({
+      content: 'string'
+    }, body)
+
+    // 获取评论所属的视频
+    const video = await Video.findById(videoId)
+
+    if (!video) {
+      this.ctx.throw(404)
+    }
+
+    // 创建评论
+    const comment = await new VideoComment({
+      content: body.content,
+      user: this.ctx.user._id,
+      video: videoId
+    }).save()
+
+    // 更新视频的评论数量
+    video.commentsCount = await VideoComment.countDocuments({
+      video: videoId
+    })
+    await video.save()
+
+    // 映射评论所属用户和视频字段数据
+    await comment.populate('user').populate('video').execPopulate()
+
+    this.ctx.body = {
+      comment
+    }
+  }
 }
 
 module.exports = VideoController
