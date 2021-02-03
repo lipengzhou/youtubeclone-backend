@@ -28,4 +28,5 @@ module.exports = app => {
     .delete('/videos/:videoId/comments/:commentId', auth, controller.video.deleteVideoComment) // 删除视频评论
     .post('/videos/:videoId/like', auth, controller.video.likeVideo) // 喜欢视频
     .post('/videos/:videoId/dislike', auth, controller.video.dislikeVideo) // 不喜欢视频
+    .get('/user/videos/liked', auth, controller.video.getUserLikedVideos) // 获取用户喜欢的视频列表
 }
