@@ -138,6 +138,43 @@ class VideoController extends Controller {
       videosCount
     }
   }
+
+  async updateVideo () {
+    const { body } = this.ctx.request
+    const { Video } = this.app.model
+    const { videoId } = this.ctx.params
+    const userId = this.ctx.user._id
+
+    // 数据验证
+    this.ctx.validate({
+      title: { type: 'string', required: false },
+      description: { type: 'string', required: false },
+      vodVideoId: { type: 'string', required: false },
+      cover: { type: 'string', required: false }
+    })
+
+    // 查询视频
+    const video = await Video.findById(videoId)
+
+    if (!video) {
+      this.ctx.throw(404, 'Video Not Found')
+    }
+
+    // 视频作者必须是当前登录用户
+    if (!video.user.equals(userId)) {
+      this.ctx.throw(403)
+    }
+
+    Object.assign(video, this.ctx.helper._.pick(body, ['title', 'description', 'vodVideoId', 'cover']))
+
+    // 把修改保存到数据库中
+    await video.save()
+
+    // 发送响应
+    this.ctx.body = {
+      video
+    }
+  }
 }
 
 module.exports = VideoController

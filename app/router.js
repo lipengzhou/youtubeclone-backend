@@ -21,4 +21,5 @@ module.exports = app => {
     .get('/videos', controller.video.getVideos) // 获取视频列表
     .get('/users/:userId/videos', controller.video.getUserVideos) // 获取用户发布的视频列表
     .get('/user/videos/feed', auth, controller.video.getUserFeedVideos) // 获取用户关注的频道视频列表
+    .patch('/videos/:videoId', auth, controller.video.updateVideo)
 }
