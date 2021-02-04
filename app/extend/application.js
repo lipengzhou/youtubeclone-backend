@@ -1,11 +1,11 @@
 /**
  * 扩展 Egg.js 应用实例 Application
  */
-var RPCClient = require('@alicloud/pop-core').RPCClient
+const RPCClient = require('@alicloud/pop-core').RPCClient
 
-function initVodClient(accessKeyId, accessKeySecret) {
-  var regionId = 'cn-shanghai' // 点播服务接入区域
-  var client = new RPCClient({
+function initVodClient (accessKeyId, accessKeySecret) {
+  const regionId = 'cn-shanghai' // 点播服务接入区域
+  const client = new RPCClient({
     accessKeyId: accessKeyId,
     accessKeySecret: accessKeySecret,
     endpoint: 'http://vod.' + regionId + '.aliyuncs.com',

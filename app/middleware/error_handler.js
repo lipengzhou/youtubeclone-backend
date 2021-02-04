@@ -1,6 +1,6 @@
 module.exports = () => { // 外层函数负责接收参数
   // 返回一个中间件处理函数
-  return async function errorHandler(ctx, next) {
+  return async function errorHandler (ctx, next) {
     try {
       await next()
     } catch (err) {

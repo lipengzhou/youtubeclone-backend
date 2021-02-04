@@ -1,7 +1,7 @@
 const Controller = require('egg').Controller
 
 class VodController extends Controller {
-  async createUploadVideo() {
+  async createUploadVideo () {
     const query = this.ctx.query
     this.ctx.validate(
       {

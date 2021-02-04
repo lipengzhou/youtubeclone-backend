@@ -1,7 +1,7 @@
 const Controller = require('egg').Controller
 
 class UserController extends Controller {
-  async create() {
+  async create () {
     // 1. 数据校验
     const body = this.ctx.request.body
     this.ctx.validate({
@@ -86,7 +86,7 @@ class UserController extends Controller {
     this.ctx.body = {
       user: {
         email: user.email,
-        token: this.ctx.header['authorization'],
+        token: this.ctx.header.authorization,
         username: user.username,
         channelDescription: user.channelDescription,
         avatar: user.avatar

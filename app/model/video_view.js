@@ -8,7 +8,7 @@ module.exports = app => {
       ref: 'User',
       required: true
     },
-   	video: { // 视频
+    video: { // 视频
       type: mongoose.ObjectId,
       ref: 'Video',
       required: true

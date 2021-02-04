@@ -65,7 +65,7 @@ class VideoController extends Controller {
       .skip((pageNum - 1) * pageSize)
       .limit(pageSize)
     const getVideosCount = Video.countDocuments()
-    const [ videos, videosCount ] = await Promise.all([
+    const [videos, videosCount] = await Promise.all([
       getVideos,
       getVideosCount
     ])
@@ -94,7 +94,7 @@ class VideoController extends Controller {
     const getVideosCount = Video.countDocuments({
       user: userId
     })
-    const [ videos, videosCount ] = await Promise.all([
+    const [videos, videosCount] = await Promise.all([
       getVideos,
       getVideosCount
     ])
@@ -129,7 +129,7 @@ class VideoController extends Controller {
         $in: channels.map(item => item.channel._id)
       }
     })
-    const [ videos, videosCount ] = await Promise.all([
+    const [videos, videosCount] = await Promise.all([
       getVideos,
       getVideosCount
     ])
@@ -253,7 +253,7 @@ class VideoController extends Controller {
       video: videoId
     })
 
-    const [ comments, commentsCount ] = await Promise.all([
+    const [comments, commentsCount] = await Promise.all([
       getComments,
       getCommentsCount
     ])
@@ -298,7 +298,7 @@ class VideoController extends Controller {
     this.ctx.status = 204
   }
 
-  async likeVideo() {
+  async likeVideo () {
     const { Video, VideoLike } = this.app.model
     const { videoId } = this.ctx.params
     const userId = this.ctx.user._id
@@ -352,7 +352,7 @@ class VideoController extends Controller {
     }
   }
 
-  async dislikeVideo() {
+  async dislikeVideo () {
     const { Video, VideoLike } = this.app.model
     const { videoId } = this.ctx.params
     const userId = this.ctx.user._id
@@ -425,7 +425,7 @@ class VideoController extends Controller {
     }).populate('user')
 
     const getVideosCount = VideoLike.countDocuments(filterDoc)
-    const [ videos, videosCount ] = await Promise.all([
+    const [videos, videosCount] = await Promise.all([
       getVideos,
       getVideosCount
     ])

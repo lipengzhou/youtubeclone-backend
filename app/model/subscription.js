@@ -8,7 +8,7 @@ module.exports = app => {
       ref: 'User',
       required: true
     },
-   	channel: { // 订阅频道
+    channel: { // 订阅频道
       type: mongoose.ObjectId,
       ref: 'User',
       required: true
