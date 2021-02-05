@@ -33,4 +33,5 @@ jobs:
         port: ${{ secrets.PORT }}
         envs: ACCESSKEYID,ACCESSKEYSECRET
         script: |
+          source ~/.bashrc
           npm --version
