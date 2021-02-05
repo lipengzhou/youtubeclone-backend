@@ -31,7 +31,7 @@ jobs:
         script: |
           export ACCESSKEYID=$ACCESSKEYID
           export ACCESSKEYSECRET=$ACCESSKEYSECRET
-          export NVM_DIR="/www/server/nvm"
+          export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
           cd /root/youtubeclone-backend
