@@ -3,6 +3,7 @@ const Controller = require('egg').Controller
 class VodController extends Controller {
   async createUploadVideo () {
     const query = this.ctx.query
+    console.log(query)
     this.ctx.validate(
       {
         Title: { type: 'string' },

@@ -2,6 +2,7 @@ module.exports = (options = { required: true }) => {
   return async (ctx, next) => {
     // 1. 获取请求头中的 token 数据
     let token = ctx.headers.authorization
+    console.log(token)
     token = token
       ? token.split('Bearer ')[1] // Bearer空格token数据
       : null

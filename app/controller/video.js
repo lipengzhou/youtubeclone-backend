@@ -7,15 +7,42 @@ class VideoController extends Controller {
     this.ctx.validate({
       title: { type: 'string' },
       description: { type: 'string' },
-      vodVideoId: { type: 'string' },
-      cover: { type: 'string' }
+      vodVideoId: { type: 'string' }
+      // cover: { type: 'string' }
     }, body)
+
+    // 默认视频封面
+    body.cover = 'http://vod.lipengzhou.com/image/default/A806D6D6B0FD4D118F1C824748826104-6-2.png'
+
     body.user = this.ctx.user._id
     const video = await new Video(body).save()
     this.ctx.status = 201
     this.ctx.body = {
       video
     }
+
+    const setVideoCover = async (video) => {
+      // 获取视频信息
+      const vodVideoInfo = await this.app.vodClient.request('GetVideoInfo', {
+        VideoId: video.vodVideoId
+      })
+
+      if (vodVideoInfo.Video.CoverURL) {
+        // 使用自动生成的封面
+        video.cover = vodVideoInfo.Video.CoverURL
+        // 将修改保存到数据库中
+        await video.save()
+      } else {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, 3000)
+        })
+        await setVideoCover(video)
+      }
+    }
+
+    setVideoCover(video)
   }
 
   async getVideo () {
