@@ -1,0 +1,1118 @@
+[
+  {
+    "index": 0,
+    "name": "用户",
+    "desc": null,
+    "add_time": 1611570912,
+    "up_time": 1611570912,
+    "list": [
+      {
+        "query_path": {
+          "path": "/users",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 120,
+        "method": "POST",
+        "catid": 58,
+        "title": "用户注册",
+        "path": "/users",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627541,
+        "up_time": 1611736737,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601126a1dca73f113441bc50",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"username\":{\"type\":\"string\",\"description\":\"用户名\",\"mock\":{\"mock\":\"@name\"}},\"email\":{\"type\":\"string\",\"description\":\"邮箱\",\"mock\":{\"mock\":\"@email\"}},\"password\":{\"type\":\"string\",\"description\":\"密码\",\"mock\":{\"mock\":\"@word\"}}},\"required\":[\"username\",\"email\",\"password\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"email\":{\"type\":\"string\"},\"token\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"avatar\":{\"type\":\"null\"}},\"required\":[\"email\",\"token\",\"username\"]}}}"
+      },
+      {
+        "query_path": {
+          "path": "/users/login",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 1,
+        "tag": [],
+        "_id": 116,
+        "method": "POST",
+        "catid": 58,
+        "title": "用户登录",
+        "path": "/users/login",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611570937,
+        "up_time": 1611736743,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601126a7dca73f113441bc51",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"email\":{\"type\":\"string\",\"description\":\"邮箱\",\"mock\":{\"mock\":\"@email\"}},\"password\":{\"type\":\"string\",\"description\":\"密码\"}},\"required\":[\"password\",\"email\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"email\":{\"type\":\"string\"},\"token\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"avatar\":{\"type\":\"string\"}},\"required\":[\"token\",\"email\",\"username\"]}}}"
+      },
+      {
+        "query_path": {
+          "path": "/user",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 2,
+        "tag": [],
+        "_id": 124,
+        "method": "GET",
+        "catid": 58,
+        "title": "获取当前登录用户",
+        "path": "/user",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627565,
+        "up_time": 1611736751,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"email\":{\"type\":\"string\"},\"token\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"avatar\":{\"type\":\"null\"}},\"required\":[\"email\",\"token\",\"username\"]}}}"
+      },
+      {
+        "query_path": {
+          "path": "/user",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 3,
+        "tag": [],
+        "_id": 128,
+        "method": "PATCH",
+        "catid": 58,
+        "title": "更新当前登录用户",
+        "path": "/user",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627590,
+        "up_time": 1611738955,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60112f4bdca73f113441bc56",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"email\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"avatar\":{\"type\":\"null\"}},\"required\":[]}}}",
+        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"password\":{\"type\":\"string\"},\"avatar\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"email\":{\"type\":\"string\"}}}"
+      },
+      {
+        "query_path": {
+          "path": "/users/:userId/subscribe",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 4,
+        "tag": [],
+        "_id": 136,
+        "method": "POST",
+        "catid": 58,
+        "title": "订阅频道（用户）",
+        "path": "/users/:userId/subscribe",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "60123a5ddca73f113441bc87",
+            "name": "userId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627905,
+        "up_time": 1611807325,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60123a5ddca73f113441bc88",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"avatar\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"cover\":{\"type\":\"string\"},\"email\":{\"type\":\"string\"},\"_id\":{\"type\":\"string\"},\"isSubscribed\":{\"type\":\"string\"},\"subscribersCount\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"required\":[\"avatar\",\"channelDescription\",\"cover\",\"email\",\"_id\",\"isSubscribed\",\"subscribersCount\",\"username\"]}},\"required\":[\"user\"]}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      },
+      {
+        "query_path": {
+          "path": "/users/:userId/subscribe",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 5,
+        "tag": [],
+        "_id": 140,
+        "method": "DELETE",
+        "catid": 58,
+        "title": "取消订阅频道（用户）",
+        "path": "/users/:userId/subscribe",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6012326adca73f113441bc83",
+            "name": "userId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627921,
+        "up_time": 1611823635,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6012326adca73f113441bc84",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "form",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"avatar\":{\"type\":\"string\"},\"channelDescription\":{\"type\":\"string\"},\"cover\":{\"type\":\"string\"},\"email\":{\"type\":\"string\"},\"_id\":{\"type\":\"string\"},\"isSubscribed\":{\"type\":\"string\"},\"subscribersCount\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"required\":[\"avatar\",\"channelDescription\",\"cover\",\"email\",\"_id\",\"isSubscribed\",\"subscribersCount\",\"username\"]}},\"required\":[\"user\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/users/:userId",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 6,
+        "tag": [],
+        "_id": 132,
+        "method": "GET",
+        "catid": 58,
+        "title": "获取用户（频道）",
+        "path": "/users/:userId",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6012325cdca73f113441bc82",
+            "name": "userId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627768,
+        "up_time": 1611823636,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"user\":{\"type\":\"object\",\"properties\":{\"avatar\":{\"type\":\"string\",\"description\":\"头像\"},\"channelDescription\":{\"type\":\"string\",\"description\":\"频道介绍\"},\"cover\":{\"type\":\"string\",\"description\":\"频道封面\"},\"email\":{\"type\":\"string\",\"description\":\"邮箱\"},\"_id\":{\"type\":\"string\",\"description\":\"用户ID\"},\"isSubscribed\":{\"type\":\"string\",\"description\":\"是否已订阅\"},\"subscribersCount\":{\"type\":\"string\",\"description\":\"订阅者数量\"},\"username\":{\"type\":\"string\",\"description\":\"用户名\"}},\"required\":[\"avatar\",\"channelDescription\",\"cover\",\"email\",\"_id\",\"isSubscribed\",\"subscribersCount\",\"username\"]}},\"required\":[\"user\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/users/:userId/subscriptions",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 7,
+        "tag": [],
+        "_id": 200,
+        "method": "GET",
+        "catid": 58,
+        "title": "获取用户的订阅列表",
+        "path": "/users/:userId/subscriptions",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "60127471dca73f113441bc96",
+            "name": "userId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611822079,
+        "up_time": 1611823638,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"subscriptions\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\",\"description\":\"用户ID\"},\"avatar\":{\"type\":\"string\",\"description\":\"用户头像\"},\"username\":{\"type\":\"string\",\"description\":\"用户名称\"}},\"required\":[\"_id\",\"avatar\",\"username\"]}}},\"required\":[\"subscriptions\"]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "视频",
+    "desc": null,
+    "add_time": 1611627423,
+    "up_time": 1611627423,
+    "list": [
+      {
+        "query_path": {
+          "path": "/videos",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 160,
+        "method": "POST",
+        "catid": 65,
+        "title": "创建视频",
+        "path": "/videos",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628123,
+        "up_time": 1612341199,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601a5fcfdca73f113441bcd8",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"title\":{\"type\":\"string\",\"description\":\"视频标题\"},\"description\":{\"type\":\"string\",\"description\":\"视频描述\"},\"vodVideoId\":{\"type\":\"string\",\"description\":\"VOD 视频 ID\"},\"cover\":{\"type\":\"string\",\"description\":\"视频封面\",\"mock\":{\"mock\":\"@image\"}}},\"required\":[\"title\",\"description\",\"vodVideoId\",\"cover\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      },
+      {
+        "query_path": {
+          "path": "/videos/:id",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 1,
+        "tag": [],
+        "_id": 208,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取视频",
+        "path": "/videos/:id",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6017eb44dca73f113441bcb3",
+            "name": "id",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1612107866,
+        "up_time": 1612246094,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"video\":{\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\",\"description\":\"视频标题\"},\"description\":{\"type\":\"string\",\"description\":\"视频详情\"},\"commentsCount\":{\"type\":\"number\",\"description\":\"视频评论数量\"},\"createdAt\":{\"type\":\"string\",\"description\":\"视频创建时间\"},\"dislikesCount\":{\"type\":\"number\",\"description\":\"不喜欢数量\"},\"likesCount\":{\"type\":\"number\",\"description\":\"喜欢数量\"},\"isLiked\":{\"type\":\"boolean\",\"description\":\"是否喜欢\"},\"isDisliked\":{\"type\":\"boolean\",\"description\":\"是否不喜欢\"},\"_id\":{\"type\":\"string\",\"description\":\"视频ID\"},\"viewsCount\":{\"type\":\"number\",\"description\":\"观看次数\"},\"user\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\",\"description\":\"用户ID\"},\"username\":{\"type\":\"string\",\"description\":\"用户名\"},\"avatar\":{\"type\":\"string\",\"description\":\"用户头像\"},\"isSubscribed\":{\"type\":\"boolean\",\"description\":\"是否订阅\"},\"subscribersCount\":{\"type\":\"number\",\"description\":\"订阅数量\"}},\"required\":[\"_id\",\"username\",\"avatar\",\"isSubscribed\",\"subscribersCount\"]}},\"required\":[\"title\",\"description\",\"commentsCount\",\"createdAt\",\"dislikesCount\",\"likesCount\",\"isLiked\",\"isDisliked\",\"_id\",\"viewsCount\",\"user\"]}},\"required\":[\"video\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/videos",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 2,
+        "tag": [],
+        "_id": 144,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取视频列表",
+        "path": "/videos",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611627944,
+        "up_time": 1612341261,
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "601a600ddca73f113441bcda",
+            "name": "pageNum",
+            "example": "1",
+            "desc": "当前页码"
+          },
+          {
+            "required": "0",
+            "_id": "601a600ddca73f113441bcd9",
+            "name": "pageSize",
+            "example": "10",
+            "desc": "每页大小"
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"videos\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\",\"description\":\"视频ID\"},\"CoverURL\":{\"type\":\"string\",\"description\":\"封面图\"},\"user\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\",\"description\":\"作者ID\"},\"username\":{\"type\":\"string\",\"description\":\"用户名\"},\"avatar\":{\"type\":\"string\",\"description\":\"用户头像\"}},\"required\":[\"_id\",\"username\",\"avatar\"],\"description\":\"视频作者\"},\"createdAt\":{\"type\":\"string\",\"description\":\"视频创建时间\"},\"description\":{\"type\":\"string\",\"description\":\"视频简介\"},\"viewsCount\":{\"type\":\"string\",\"description\":\"视频观看数量\"}},\"required\":[\"_id\",\"CoverURL\",\"user\",\"createdAt\",\"description\",\"viewsCount\"]}},\"videosCount\":{\"type\":\"string\"}},\"required\":[\"videos\",\"videosCount\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/users/:userId/videos",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 3,
+        "tag": [],
+        "_id": 152,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取用户发布的视频列表",
+        "path": "/users/:userId/videos",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "600f7e1bdca73f113441bc1d",
+            "name": "userId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628059,
+        "up_time": 1612247543,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/user/videos/feed",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 4,
+        "tag": [],
+        "_id": 148,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取用户关注的频道视频列表",
+        "path": "/user/videos/feed",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628027,
+        "up_time": 1612344410,
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "601a6c5adca73f113441bce0",
+            "name": "pageNum",
+            "example": "1",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "601a6c5adca73f113441bcdf",
+            "name": "pageSize",
+            "example": "10",
+            "desc": ""
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"videos\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{}}},\"videosCount\":{\"type\":\"number\"}},\"required\":[\"videos\",\"videosCount\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 5,
+        "tag": [],
+        "_id": 164,
+        "method": "PATCH",
+        "catid": 65,
+        "title": "更新视频",
+        "path": "/videos/:videoId",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "601a7308dca73f113441bce5",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628143,
+        "up_time": 1612346120,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601a7308dca73f113441bce6",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"title\":{\"type\":\"string\",\"description\":\"视频标题\"},\"description\":{\"type\":\"string\",\"description\":\"视频简介\"},\"vodVideoId\":{\"type\":\"string\",\"description\":\"VOd 视频ID\"},\"cover\":{\"type\":\"string\",\"description\":\"视频封面\"}},\"required\":[\"title\",\"description\",\"vodVideoId\",\"cover\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 6,
+        "tag": [],
+        "_id": 168,
+        "method": "DELETE",
+        "catid": 65,
+        "title": "删除视频",
+        "path": "/videos/:videoId",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "600f7e81dca73f113441bc1f",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628161,
+        "up_time": 1612185331,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/comments",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 7,
+        "tag": [],
+        "_id": 172,
+        "method": "POST",
+        "catid": 65,
+        "title": "添加视频评论",
+        "path": "/videos/:videoId/comments",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6017fae2dca73f113441bcbb",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628181,
+        "up_time": 1612184290,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6017fae2dca73f113441bcbc",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"content\":{\"type\":\"string\",\"description\":\"视频评论\"}},\"required\":[\"content\"]}",
+        "req_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/comments",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 8,
+        "tag": [],
+        "_id": 176,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取视频评论列表",
+        "path": "/videos/:videoId/comments",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "601a8c4bdca73f113441bce7",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628199,
+        "up_time": 1612352587,
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "601a8c4bdca73f113441bce9",
+            "name": "pageNum",
+            "example": "1",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "601a8c4bdca73f113441bce8",
+            "name": "pageSize",
+            "example": "10",
+            "desc": ""
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/comments/:commentId",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 9,
+        "tag": [],
+        "_id": 180,
+        "method": "DELETE",
+        "catid": 65,
+        "title": "删除视频评论",
+        "path": "/videos/:videoId/comments/:commentId",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6017faecdca73f113441bcbf",
+            "name": "videoId",
+            "desc": ""
+          },
+          {
+            "_id": "6017faecdca73f113441bcbe",
+            "name": "commentId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628217,
+        "up_time": 1612184380,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6017faecdca73f113441bcc0",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "form",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/like",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 10,
+        "tag": [],
+        "_id": 184,
+        "method": "POST",
+        "catid": 65,
+        "title": "喜欢视频",
+        "path": "/videos/:videoId/like",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6018bf67dca73f113441bcc5",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628285,
+        "up_time": 1612243633,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6018bf67dca73f113441bcc6",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "form",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/dislike",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 11,
+        "tag": [],
+        "_id": 220,
+        "method": "POST",
+        "catid": 65,
+        "title": "不喜欢视频",
+        "path": "/videos/:videoId/dislike",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "6018bf7edca73f113441bcc7",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1612234622,
+        "up_time": 1612243635,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/user/videos/liked",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 12,
+        "tag": [],
+        "_id": 156,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取用户喜欢的视频列表",
+        "path": "/user/videos/liked",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628076,
+        "up_time": 1612355274,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/videos/:videoId/views",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 13,
+        "tag": [],
+        "_id": 224,
+        "method": "POST",
+        "catid": 65,
+        "title": "添加视频观看记录",
+        "path": "/videos/:videoId/views",
+        "project_id": 20,
+        "req_params": [
+          {
+            "_id": "601a9adbdca73f113441bceb",
+            "name": "videoId",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1612356011,
+        "up_time": 1612356315,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601a9adbdca73f113441bcec",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "req_body_type": "form",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/user/videos/viewed",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 14,
+        "tag": [],
+        "_id": 192,
+        "method": "GET",
+        "catid": 65,
+        "title": "获取用户视频观看记录",
+        "path": "/user/videos/viewed",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611628712,
+        "up_time": 1612250837,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "",
+        "markdown": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "阿里云视频点播服务",
+    "desc": null,
+    "add_time": 1611817542,
+    "up_time": 1611817542,
+    "list": [
+      {
+        "query_path": {
+          "path": "/vod/RefreshUploadVideo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 204,
+        "method": "GET",
+        "catid": 72,
+        "title": "刷新视频上传凭证",
+        "path": "/vod/RefreshUploadVideo",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611916380,
+        "up_time": 1612247535,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60161c20dca73f113441bc9e",
+            "name": "VideoId",
+            "desc": ""
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<p>详细使用方式请参考：<a href=\"https://help.aliyun.com/document_detail/55408.html?spm=a2c4g.11186623.6.764.4b415d4aV6cvxR\">刷新视频上传凭证 - 视频点播 - 阿里云 (aliyun.com)</a>。</p>\n",
+        "markdown": "详细使用方式请参考：[刷新视频上传凭证 - 视频点播 - 阿里云 \\(aliyun.com\\)](https://help.aliyun.com/document_detail/55408.html?spm=a2c4g.11186623.6.764.4b415d4aV6cvxR)。",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      },
+      {
+        "query_path": {
+          "path": "/vod/CreateUploadVideo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 196,
+        "method": "GET",
+        "catid": 72,
+        "title": "获取视频上传地址和凭证",
+        "path": "/vod/CreateUploadVideo",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1611817580,
+        "up_time": 1612255476,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "601910f4dca73f113441bcd0",
+            "name": "Title",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "601910f4dca73f113441bccf",
+            "name": "FileName",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601910f4dca73f113441bcd1",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<p>详细使用方式请参考：<a href=\"https://help.aliyun.com/document_detail/55407.html?spm=a2c4g.11186623.6.763.506a2749Ic6rZX\">获取视频上传地址和凭证 - 视频点播 - 阿里云 (aliyun.com)</a></p>\n",
+        "markdown": "详细使用方式请参考：[获取视频上传地址和凭证 - 视频点播 - 阿里云 \\(aliyun.com\\)](https://help.aliyun.com/document_detail/55407.html?spm=a2c4g.11186623.6.763.506a2749Ic6rZX)",
+        "req_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"RequestId\":{\"type\":\"string\",\"description\":\"请求ID\"},\"VideoId\":{\"type\":\"string\",\"description\":\"视频ID\"},\"UploadAddress\":{\"type\":\"string\",\"description\":\"上传地址\"},\"UploadAuth\":{\"type\":\"string\",\"description\":\"上传凭证\"}},\"required\":[\"RequestId\",\"VideoId\",\"UploadAddress\",\"UploadAuth\"]}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"Title\":{\"type\":\"string\"},\"FileName\":{\"type\":\"string\"}},\"required\":[\"Title\",\"FileName\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/vod/GetVideoPlayAuth",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 212,
+        "method": "GET",
+        "catid": 72,
+        "title": "获取视频播放凭证",
+        "path": "/vod/GetVideoPlayAuth",
+        "project_id": 20,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 11,
+        "add_time": 1612163184,
+        "up_time": 1612247537,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "6017a8b7dca73f113441bca8",
+            "name": "VideoId",
+            "desc": "视频ID"
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "desc": "<p>参考：<a href=\"https://help.aliyun.com/document_detail/52833.html?spm=a2c4g.11186623.2.8.475ba2fcNbIBGD\">获取视频播放凭证 - 视频点播 - 阿里云 (aliyun.com)</a></p>\n",
+        "markdown": "参考：[获取视频播放凭证 - 视频点播 - 阿里云 \\(aliyun.com\\)](https://help.aliyun.com/document_detail/52833.html?spm=a2c4g.11186623.2.8.475ba2fcNbIBGD)",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}"
+      }
+    ]
+  }
+]
